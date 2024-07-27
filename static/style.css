@@ -1,0 +1,63 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+*{
+    box-sizing: border-box;
+}
+.header{
+    position: absolute;
+    top: 10px;
+}
+main{
+    width: 100vw;
+    height: 100vh ;
+    background-image: url(bgimage.jpg);
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+li{
+    background-color: rgb(33, 80, 124);
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+}
+label{
+    color: aliceblue;
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.outermain{
+    width: 90%;
+    min-height: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.deletebutton:hover{
+    background-color: red;
+}
+.submitbttn:hover{
+    background-color: green;
+}
+.addapi{
+    height: 20%;
+}
+.formbox{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}

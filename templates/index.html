@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Reminder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main>  
+        <h1 class="header" style="color: azure; background-color: rgb(33, 80, 124);"><u>STOCK REMINDER</u></h1>
+        <div class="outermain">
+            <div class="main">
+                <div>
+                    <ol>
+                        {% for stock in stocks %}
+                        <li>
+                            <form action="{{ url_for('update_threshold', stock_id=stock.id) }}" method="post" style="display:inline;">
+                                {{ stock.name }} <br>
+                                <input  type="number" name="threshold" placeholder="Enter Threshold Value" value="{{ stock.threshold or '' }}">
+                                <button class="submitbttn" type="submit">Update</button>
+                            </form>
+                            <form action="{{ url_for('delete_stock', stock_id=stock.id) }}" method="post" style="display:inline;">
+                                <button type="submit" class="deletebutton"><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+            <div class="addapi">
+                <form action="{{ url_for('home') }}" method="post">
+                    <div class="formbox">
+                        <div>
+                            <label for="stockname">STOCK NAME: </label>
+                            <input type="text" name="stockname" required><br>
+                        </div>
+                        <div>
+                            <label for="stockapi">STOCK API</label>
+                            <input type="url" name="stockapi" required><br>
+                        </div>
+                        <div>
+                            <button type="submit">ADD STOCK</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
